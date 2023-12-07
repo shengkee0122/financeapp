@@ -33,10 +33,10 @@ class FundCondition extends StatelessWidget {
         children: [
           SizedBox(
             height: 25,
-            width: 25,
+            width: 20,
             child: Image.asset("images/$icon.png"),
           ),
-          const SizedBox(width: 12.4),
+          const SizedBox(width: 14),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -45,7 +45,7 @@ class FundCondition extends StatelessWidget {
                 style: const TextStyle(
                   color: Colors.grey,
                   fontWeight: FontWeight.bold,
-                  fontSize: 12.5,
+                  fontSize: 10,
                 ),
               ),
               const SizedBox(height: 3),
@@ -54,7 +54,7 @@ class FundCondition extends StatelessWidget {
                 child: Text(
                   "\$$amount",
                   style: const TextStyle(
-                    fontSize: 20,
+                    fontSize: 12,
                     fontWeight: FontWeight.bold,
                     color: Color.fromARGB(255, 14, 16, 41),
                   ),

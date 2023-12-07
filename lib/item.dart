@@ -57,7 +57,7 @@ class Item extends StatelessWidget {
             ),
             const Spacer(),
             Text(
-              "\$${expense.amount}",
+              expense.amount.toStringAsFixed(2),
               style: TextStyle(
                 fontSize: 20.5,
                 color: expense.isIncome ? Colors.green : Colors.red,

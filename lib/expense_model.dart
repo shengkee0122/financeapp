@@ -1,6 +1,6 @@
 class ExpenseModel {
   final String item;
-  final int amount;
+  final double amount;
   final bool isIncome;
   final DateTime date;
   ExpenseModel({

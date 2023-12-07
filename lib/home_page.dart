@@ -3,6 +3,7 @@ import 'package:financeapp/item.dart';
 import 'package:financeapp/fund_condition_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:financeapp/ocr.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -17,11 +18,11 @@ List<ExpenseModel> expenses = [];
 class _HomePageState extends State<HomePage> {
   final itemController = TextEditingController();
   final amountController = TextEditingController();
-  int amount = 0;
+  double amount = 0;
   final dateController = TextEditingController();
-  int totalMoney = 0;
-  int spentMoney = 0;
-  int income = 0;
+  double totalMoney = 0;
+  double spentMoney = 0;
+  double income = 0;
   DateTime? pickedDate;
   String currentOption = options[0];
   @override
@@ -45,15 +46,28 @@ class _HomePageState extends State<HomePage> {
                         "Add Transaction",
                         style: TextStyle(
                         color: Colors.black,
-                        fontSize: 25,
+                        fontSize: 20,
                         fontWeight: FontWeight.bold,
                       ),
                       ),
                     ),
                     actions: [
+                      IconButton(
+                        icon: Icon(
+                            Icons.camera_alt_rounded,
+                            color: Colors.pink,
+                        ), // Replace 'your_icon' with the desired icon
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => MyHomePage()),
+                          );
+                          // Add the functionality for this icon button
+                        },
+                      ),
                       TextButton(
                         onPressed: () {
-                          amount = int.parse(amountController.text);
+                          amount = double.parse(amountController.text);
                           // adding a new item
                           final expense = ExpenseModel(
                             item: itemController.text,
@@ -82,7 +96,7 @@ class _HomePageState extends State<HomePage> {
                           style: TextStyle(
                             color: Colors.pink,
                             fontWeight: FontWeight.bold,
-                            fontSize: 20,
+                            fontSize: 18,
                           ),
                         ),
                       ),
@@ -95,7 +109,7 @@ class _HomePageState extends State<HomePage> {
                           style: TextStyle(
                             color: Colors.pink,
                             fontWeight: FontWeight.bold,
-                            fontSize: 20,
+                            fontSize: 18,
                           ),
                         ),
                       ),
@@ -242,17 +256,17 @@ class _HomePageState extends State<HomePage> {
                   child: SizedBox(
                     child: FundCondition(
                     type: "DEPOSIT",
-                    amount: "$totalMoney",
+                    amount: totalMoney.toStringAsFixed(2),
                     icon: "img_2",
                     ),
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(left: 5),
+                  padding: EdgeInsets.only(left: 5),
                   child: SizedBox(
                     child: FundCondition(
                       type: "EXPENSE",
-                      amount: "$spentMoney",
+                      amount: spentMoney.toStringAsFixed(2),
                       icon: "img",
 
                     ),
@@ -263,7 +277,7 @@ class _HomePageState extends State<HomePage> {
                   child: SizedBox(
                       child: FundCondition(
                         type: "INCOME",
-                        amount: "$income",
+                        amount: income.toStringAsFixed(2),
                         icon: "img_1",
                       ),
                   ),
