@@ -152,11 +152,24 @@ class _HomePageState extends State<HomePage> {
                                   initialDate: DateTime.now(),
                                   firstDate: DateTime(2000),
                                   lastDate: DateTime(2100),
+                                  builder: (BuildContext context, Widget? child) {
+                                    return Theme(
+                                      data: ThemeData.light().copyWith(
+                                        primaryColor: Colors.pinkAccent.shade100, // Change the header background color
+                                        hintColor: Colors.pinkAccent.shade100, // Change the selected day color
+                                        colorScheme: ColorScheme.light(primary: Colors.pinkAccent.shade100),
+                                        buttonTheme: ButtonThemeData(textTheme: ButtonTextTheme.primary),
+                                      ),
+                                      child: child!,
+                                    );
+                                  },
                                 );
-                                String date =
-                                DateFormat.yMMMMd().format(pickedDate!);
-                                dateController.text = date;
-                                setState(() {});
+                                if (pickedDate != null) {
+                                  String date =
+                                  DateFormat.yMMMMd().format(pickedDate!);
+                                  dateController.text = date;
+                                  setState(() {});
+                                }
                               },
                               controller: dateController,
                               decoration: const InputDecoration(

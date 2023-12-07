@@ -22,7 +22,13 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: const Text("Text Recognition"),
+        title: Text(
+            "Text Recognition",
+            style: TextStyle(
+            color: Colors.white,
+            ),
+        ),
+        backgroundColor: Colors.pinkAccent.shade100,
       ),
       body: Center(
           child: SingleChildScrollView(
