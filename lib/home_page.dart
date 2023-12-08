@@ -45,17 +45,17 @@ class _HomePageState extends State<HomePage> {
                       child: Text(
                         "Add Transaction",
                         style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 23,
-                        fontWeight: FontWeight.bold,
-                      ),
+                          color: Colors.black,
+                          fontSize: 23,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ),
                     actions: [
                       IconButton(
                         icon: Icon(
-                            Icons.camera_alt_rounded,
-                            color: Colors.pink,
+                          Icons.camera_alt_rounded,
+                          color: Colors.pink,
                         ), // Replace 'your_icon' with the desired icon
                         onPressed: () {
                           Navigator.push(
@@ -240,12 +240,13 @@ class _HomePageState extends State<HomePage> {
               },
             );
           },
+          shape: CircleBorder(),
           child: const Icon(Icons.add, size: 26),
         ),
       ),
       appBar: AppBar(
         title: const Text(
-            "Expense Tracker",
+          "Expense Tracker",
           style: TextStyle(
             color: Colors.white,
             fontSize: 30,
@@ -268,9 +269,9 @@ class _HomePageState extends State<HomePage> {
                   padding: const EdgeInsets.only(left: 8),
                   child: SizedBox(
                     child: FundCondition(
-                    type: "DEPOSIT",
-                    amount: totalMoney.toStringAsFixed(2),
-                    icon: "img_2",
+                      type: "DEPOSIT",
+                      amount: totalMoney.toStringAsFixed(2),
+                      icon: "img_2",
                     ),
                   ),
                 ),
@@ -288,11 +289,11 @@ class _HomePageState extends State<HomePage> {
                 Padding(
                   padding: const EdgeInsets.only(left: 5, right: 8),
                   child: SizedBox(
-                      child: FundCondition(
-                        type: "INCOME",
-                        amount: income.toStringAsFixed(2),
-                        icon: "img_1",
-                      ),
+                    child: FundCondition(
+                      type: "INCOME",
+                      amount: income.toStringAsFixed(2),
+                      icon: "img_1",
+                    ),
                   ),
                 ),
               ],
