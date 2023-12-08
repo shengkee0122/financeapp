@@ -46,7 +46,7 @@ class _HomePageState extends State<HomePage> {
                         "Add Transaction",
                         style: TextStyle(
                         color: Colors.black,
-                        fontSize: 20,
+                        fontSize: 23,
                         fontWeight: FontWeight.bold,
                       ),
                       ),
@@ -141,7 +141,7 @@ class _HomePageState extends State<HomePage> {
                               border: OutlineInputBorder(),
                             ),
                           ),
-                          const SizedBox(height: 18),
+                          const SizedBox(height: 8),
                           Align(
                             alignment: Alignment.centerLeft,
                             child: TextField(
@@ -194,7 +194,7 @@ class _HomePageState extends State<HomePage> {
                               readOnly: true,
                             ),
                           ),
-                          const SizedBox(height: 15),
+                          const SizedBox(height: 8),
                           RadioMenuButton(
                             value: options[0],
                             groupValue: currentOption,
