@@ -174,7 +174,7 @@ class _HomePageState extends State<HomePage> {
                               controller: dateController,
                               decoration: const InputDecoration(
                                 labelText: "Date",
-                                hintStyle: TextStyle(
+                                labelStyle: TextStyle(
                                   color: Colors.blueGrey,
                                 ),
                                 filled: true,
