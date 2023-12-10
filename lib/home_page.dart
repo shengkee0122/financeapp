@@ -31,22 +31,23 @@ class _HomePageState extends State<HomePage> {
       resizeToAvoidBottomInset: false,
       floatingActionButton: SizedBox(
         height: 67,
-        child: FloatingActionButton(
+        child:
+        FloatingActionButton(
           backgroundColor: Colors.pinkAccent.shade100,
           onPressed: () {
             showDialog(
               context: context,
               builder: (context) {
                 return SizedBox(
-                  height: 400,
+                  height: 0,
                   child: AlertDialog(
                     title: const Padding(
-                      padding: EdgeInsets.only(left: 16.0),
+                      padding: EdgeInsets.all(0),
                       child: Text(
                         "Add Transaction",
                         style: TextStyle(
                           color: Colors.black,
-                          fontSize: 23,
+                          fontSize: 21,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
@@ -115,13 +116,15 @@ class _HomePageState extends State<HomePage> {
                       ),
                     ],
                     content: SizedBox(
-                      height: 340,
+                      height: 256,
                       width: 400,
                       child: Column(
                         children: [
                           TextField(
                             controller: itemController,
                             decoration: const InputDecoration(
+                              //isDense: true,
+                              contentPadding: EdgeInsets.only(top: 5, bottom:5, right: 5, left: 10),
                               hintText: "Item",
                               hintStyle: TextStyle(
                                 color: Colors.blueGrey,
@@ -134,6 +137,8 @@ class _HomePageState extends State<HomePage> {
                             controller: amountController,
                             keyboardType: TextInputType.number,
                             decoration: const InputDecoration(
+                              //isDense: true,
+                              contentPadding: EdgeInsets.only(top: 5, bottom:5, right: 5, left: 10),
                               hintText: "Amount",
                               hintStyle: TextStyle(
                                 color: Colors.blueGrey,
@@ -143,7 +148,7 @@ class _HomePageState extends State<HomePage> {
                           ),
                           const SizedBox(height: 8),
                           Align(
-                            alignment: Alignment.centerLeft,
+                            alignment: Alignment.topLeft,
                             child: TextField(
                               onTap: () async {
                                 // user can pick date
@@ -173,12 +178,17 @@ class _HomePageState extends State<HomePage> {
                               },
                               controller: dateController,
                               decoration: const InputDecoration(
+                                isDense: true,
+                                contentPadding: EdgeInsets.only(top: 1, bottom:1, right: 5, left: 5),
                                 labelText: "Date",
                                 labelStyle: TextStyle(
                                   color: Colors.blueGrey,
                                 ),
                                 filled: true,
-                                prefixIcon: Icon(Icons.calendar_today),
+                                prefixIcon: Icon(
+                                  Icons.calendar_today,
+                                  size: 20.0, // Adjust the size as needed
+                                ),
                                 prefixIconColor: Colors.pink,
                                 enabledBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
@@ -194,7 +204,7 @@ class _HomePageState extends State<HomePage> {
                               readOnly: true,
                             ),
                           ),
-                          const SizedBox(height: 8),
+
                           RadioMenuButton(
                             value: options[0],
                             groupValue: currentOption,
@@ -212,10 +222,8 @@ class _HomePageState extends State<HomePage> {
                               ),
                             ),
                           ),
+
                           RadioMenuButton(
-                            style: ButtonStyle(
-                              iconSize: MaterialStateProperty.all(20),
-                            ),
                             value: options[1],
                             groupValue: currentOption,
                             onChanged: (income) {
