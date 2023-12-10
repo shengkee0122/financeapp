@@ -52,7 +52,7 @@ class FundCondition extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.only(left: 0.4),
                 child: Text(
-                  "\$$amount",
+                  "\RM$amount",
                   style: const TextStyle(
                     fontSize: 12,
                     fontWeight: FontWeight.bold,
